@@ -50,12 +50,16 @@ highlight  default  link  TodoDate       PreProc
 highlight  default  link  TodoProject    Special
 highlight  default  link  TodoContext    Special
 
-if has('python')
-    let b:curdir = expand('<sfile>:p:h')
-    let s:script_dir = b:curdir . "/python/"
-    execute "pyfile " . s:script_dir. "todo.py"
-else
-    echom "Your version of vim has no python support. Overdue dates won't be highlighted"
-endif
+" (i) Commented out glitchy python function that doesn't handle
+" correctly missing python modules. It was responsible for
+" overdue tasks highlighting.
+"
+" if has('python')
+"     let b:curdir = expand('<sfile>:p:h')
+"     let s:script_dir = b:curdir . "/python/"
+"     execute "pyfile " . s:script_dir. "todo.py"
+" else
+"     echom "Your version of vim has no python support. Overdue dates won't be highlighted"
+" endif
 
 let b:current_syntax = "todo"
